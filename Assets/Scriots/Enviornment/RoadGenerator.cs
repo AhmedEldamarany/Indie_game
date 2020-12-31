@@ -8,7 +8,7 @@ public class RoadGenerator : MonoBehaviour
     RoadsPool roadsPool;
     private float spawnz;
     private float roadLegnth = 10;
-    private int amount = 1;
+    private int amount = 5;
     Queue<GameObject> activeRoads;
     void Start()
     {
@@ -24,7 +24,7 @@ public class RoadGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player.position.z-roadLegnth > (spawnz - (amount * roadLegnth)))
+        if (Player.position.z-roadLegnth >(spawnz - (amount * roadLegnth)))
         {
             SpawnRoad();
             ReturnRoad();

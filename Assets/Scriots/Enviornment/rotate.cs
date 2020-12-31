@@ -8,14 +8,15 @@ public class rotate : MonoBehaviour
     private bool forward = true;
     private int random;
     private float xangle = 0, yangle = 0, zangle = 0;
+    private bool isAroundYAxis = false;
     float angletoCheck;
     private void Start()
     {
-        random = 1; //Random.Range(1, 4);
+        random = Random.Range(1, 4);
         if (random == 1)
             xangle = Random.Range(0.05f, 0.1f);
         else if (random == 2)
-            yangle = Random.Range(0.05f, 0.1f);
+        { yangle = Random.Range(0.05f, 0.1f); isAroundYAxis = true; }
         else if (random == 3)
             zangle = Random.Range(0.05f, 0.1f);
 
@@ -35,15 +36,16 @@ public class rotate : MonoBehaviour
                 angletoCheck = transform.rotation.eulerAngles.z;
                 break;
         }
-        if (forward)
+        if (forward|| isAroundYAxis)
         {
+            
             transform.Rotate(xangle, yangle, zangle);
 
-            if (angletoCheck >= 29 && angletoCheck <= 331)
+            if (angletoCheck >= 19 && angletoCheck <= 339)
             {
-                Debug.Log(xangle);
+
                 xangle = -xangle;
-                yangle = -yangle;
+              
                 zangle = -zangle;
                 forward = false;
             }
@@ -51,11 +53,11 @@ public class rotate : MonoBehaviour
         else
         {
             transform.Rotate(xangle, yangle, zangle);
-            if (angletoCheck > 30 && angletoCheck < 331)
+            if (angletoCheck > 20 && angletoCheck < 340)
             {
-                Debug.Log(xangle);
+              
                 xangle = -xangle;
-                yangle = -yangle;
+                
                 zangle = -zangle;
                  forward = true;
             }
