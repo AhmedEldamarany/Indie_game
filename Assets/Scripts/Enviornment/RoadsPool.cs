@@ -36,6 +36,7 @@ public class RoadsPool : MonoBehaviour
         if (road != null)
             roads.Add(road);
         road.SetActive(false);
+        road.GetComponent<rotate>().enabled = false;
     }
 
 

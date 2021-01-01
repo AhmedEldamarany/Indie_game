@@ -3,7 +3,7 @@
      
     public class flying : MonoBehaviour {
 
-    float speed = 1f;
+ 
      Transform player;
     Vector3 offset;
     private void Start()

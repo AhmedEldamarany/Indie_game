@@ -10,6 +10,8 @@ public class RoadGenerator : MonoBehaviour
     private float roadLegnth = 10;
     private int amount = 5;
     Queue<GameObject> activeRoads;
+    float score = 0;
+    UiManager uiManager;
     void Start()
     {
         roadsPool = gameObject.GetComponent<RoadsPool>();
@@ -19,6 +21,7 @@ public class RoadGenerator : MonoBehaviour
         {
             SpawnRoad();
         }
+        uiManager = GameObject.FindGameObjectWithTag("ui").GetComponent<UiManager>(); ;
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class RoadGenerator : MonoBehaviour
         newRoad.SetActive(true);
 
         newRoad.transform.position = Vector3.forward * spawnz;
+        newRoad.GetComponent<rotate>().enabled = true; //todo when 
         activeRoads.Enqueue(newRoad);
         spawnz += roadLegnth;
 
@@ -45,6 +49,6 @@ public class RoadGenerator : MonoBehaviour
     private void ReturnRoad()
     {
         roadsPool.Add(activeRoads.Dequeue());
-
+        uiManager.setScore(++score);
     }
 }
