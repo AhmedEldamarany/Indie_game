@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    private Text scoreText;
-    private void Start()
-    {
-        scoreText = GetComponentInChildren<Text>();
-    }
+    [SerializeField] private  Text scoreText;
+    [SerializeField] private  Text livesScore;
+   
+  
+
 
     // Update is called once per frame
-     public void setScore( float score)
+    public  void setScore(float score)
     {
         scoreText.text = score.ToString("0");
+    }
+    public  void TakeALife()
+    {
+        livesScore.text = (int.Parse(livesScore.text) - 1).ToString("0");
     }
 }

@@ -37,6 +37,8 @@ public class RoadsPool : MonoBehaviour
             roads.Add(road);
         road.SetActive(false);
         road.GetComponent<rotate>().enabled = false;
+        road.transform.rotation = Quaternion.Euler(0,-90,0);
+        road.GetComponent<move>().enabled = false;
     }
 
 

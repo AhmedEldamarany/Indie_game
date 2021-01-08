@@ -16,7 +16,9 @@ public class rotate : MonoBehaviour
         if (random == 1)
             xangle = Random.Range(0.05f, 0.1f);
         else if (random == 2)
-        { yangle = Random.Range(0.05f, 0.1f); isAroundYAxis = true; }
+        { yangle = Random.Range(0.05f, 0.1f); 
+            isAroundYAxis = true; 
+        }
         else if (random == 3)
             zangle = Random.Range(0.05f, 0.1f);
 
