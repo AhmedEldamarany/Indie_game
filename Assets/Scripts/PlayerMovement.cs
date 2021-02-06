@@ -6,8 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     private UiManager uiManager;
+   [SerializeField] VectorSO PlayerPosition;
     float h, v;
-    float speed = 3f;
+    float speed = 8f;
 
     void Start()
     {
@@ -21,10 +22,8 @@ public class PlayerMovement : MonoBehaviour
         h = Input.GetAxis("Horizontal") * speed ;
         v = Input.GetAxis("Vertical") * speed ;
         rb.AddForce(h, 0, v);
-        if (transform.position.y < -5f)
-        {
-            Deadth();
-        }
+        PlayerPosition.value = transform.position;
+       
     }
     public void Deadth()
     {
@@ -32,5 +31,11 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector3.zero;
         uiManager.TakeALife();
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "deadly")
+            Deadth();
+    }
+   
 }
 

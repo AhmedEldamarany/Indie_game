@@ -2,44 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadsPool : MonoBehaviour
+public class PoolGO : MonoBehaviour //Mine
 {
-    public List<GameObject> roads;
-    GameObject currentRoad;
+    public List<PoolItem> roads;
+    PoolItem currentRoad;
     private int index;
+   
     void Start()
     {
         int count = roads.Count;
         for (int i = 0; i < count; i++)
-            roads.Add(roads[i]);
+            roads.Add(roads[i]); //Doubling the list by adding every element again
         for (int i = 0; i < roads.Count; i++)
         {
             roads[i] = Instantiate(roads[i]);
             roads[i].transform.SetParent(transform);
-            roads[i].SetActive(false);
+            roads[i].gameObject.SetActive(false);
+            
         }
     }
-    public GameObject getRoad()
+    public PoolItem getRoad()
     {
         if (roads.Count > 0)
         {
             index = Random.Range(0, roads.Count);
             currentRoad = roads[index];
+            roads[index].Activate();
             roads.RemoveAt(index);
             return currentRoad;
         }
         else
             return null;
     }
-    public void Add(GameObject road)
+    public void AddBack(PoolItem road)
     {
         if (road != null)
+        {
             roads.Add(road);
-        road.SetActive(false);
-        road.GetComponent<rotate>().enabled = false;
-        road.transform.rotation = Quaternion.Euler(0,-90,0);
-        road.GetComponent<move>().enabled = false;
+            road.Deactivate();
+       
+        }
     }
-
 
 }

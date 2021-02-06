@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadGenerator : Generator
+public class SandGenerator : Generator
 {
-    
+
 
     // Update is called once per frame
     void Update()
@@ -17,5 +17,5 @@ public class RoadGenerator : Generator
             //score event SO
         }
     }
-   
+
 }

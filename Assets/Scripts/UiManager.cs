@@ -7,14 +7,18 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] private  Text scoreText;
     [SerializeField] private  Text livesScore;
-   
-  
-
-
-    // Update is called once per frame
-    public  void setScore(float score)
+    private int score;
+    private void Start()
     {
+        score = 0;
         scoreText.text = score.ToString("0");
+    }
+
+
+    public  void setScore()
+    {
+       // after scorehandlre did ++
+        scoreText.text =score.ToString("0");
     }
     public  void TakeALife()
     {
