@@ -14,4 +14,8 @@ public class DifficultySO : ScriptableObject
         insane
     }
     public Diffuclty value;
+    private void OnDisable()
+    {
+        value = DifficultySO.Diffuclty.easy;
+    }
 }

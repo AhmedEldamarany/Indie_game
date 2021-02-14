@@ -11,7 +11,7 @@ public class move : MonoBehaviour
     void Start()
     {
         random = Random.Range(1, 3);
-        movingSpeed = .01f;
+        movingSpeed = .02f;
 
     }
 
@@ -38,14 +38,14 @@ public class move : MonoBehaviour
             if (moveAhead)
             {
                 transform.Translate(0, movingSpeed, 0,Space.World);
-                if (transform.position.y > 5)
+                if (transform.position.y > 10)
                     moveAhead = false;
             }
             else
             {
 
                 transform.Translate(0, -movingSpeed, 0,Space.World);
-                if (transform.position.y < -5)
+                if (transform.position.y < 0)
                     moveAhead = true;
             }
         }

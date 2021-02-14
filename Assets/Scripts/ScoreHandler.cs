@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ScoreHandler : MonoBehaviour
 {
-    float score = 0;
-    UiManager uiManager;
+    [SerializeField] private IntSo score;
+    [SerializeField]UiManager uiManager;
     [SerializeField]private DifficultySO diffuclty;
     void Start()
     {
         diffuclty.value = DifficultySO.Diffuclty.easy;
-        uiManager = GameObject.FindGameObjectWithTag("ui").GetComponent<UiManager>();
+        //uiManager = GameObject.FindGameObjectWithTag("ui").GetComponent<UiManager>(); //
 
     }
 
@@ -18,15 +18,15 @@ public class ScoreHandler : MonoBehaviour
     {
         
     }
-    public void HandleDifficulty(int score)
+    public void HandleDifficulty()
     {
-        //score++
-       // uiManager.setScore();
-        if (score > 10 && score < 20)
+        score.value++;
+        uiManager.setScore();
+        if (score.value > 10 && score.value < 25)
             diffuclty.value = DifficultySO.Diffuclty.meduim;
-        else if (score > 20 && score < 30)
+        else if (score.value > 25 && score.value < 40)
             diffuclty.value = DifficultySO.Diffuclty.hard;
-        else if (score > 30 && score < 40)
+        else if (score.value > 40 )
             diffuclty.value = DifficultySO.Diffuclty.insane;
     }
 }

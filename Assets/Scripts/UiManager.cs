@@ -7,18 +7,18 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] private  Text scoreText;
     [SerializeField] private  Text livesScore;
-    private int score;
+    [SerializeField] private IntSo score;
     private void Start()
     {
-        score = 0;
-        scoreText.text = score.ToString("0");
+        
+        scoreText.text = score.value.   ToString("0");
     }
 
 
     public  void setScore()
     {
        // after scorehandlre did ++
-        scoreText.text =score.ToString("0");
+        scoreText.text =score.value.ToString("0");
     }
     public  void TakeALife()
     {

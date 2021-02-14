@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     private UiManager uiManager;
    [SerializeField] VectorSO PlayerPosition;
+    [SerializeField] MyEventSO deathEvent;
     float h, v;
     float speed = 8f;
 
@@ -27,7 +28,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Deadth()
     {
-        transform.position = new Vector3(0, 5, transform.position.z + 5);
+        deathEvent.Raise();
+        transform.position = new Vector3(0, 13, transform.position.z+3 );
         rb.velocity = Vector3.zero;
         uiManager.TakeALife();
     }

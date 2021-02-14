@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class RoadGenerator : Generator
 {
-    
+    [SerializeField] MyEventSO scoreIncrease;
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (PlayerPosition.value.z - roadLegnth > (spawnz - (amount * roadLegnth)))
         {
             SpawnRoad();
             ReturnRoad();
-            //  audioPlayer.PlayAudio();
-            //score event SO
+            scoreIncrease.Raise();
         }
     }
    

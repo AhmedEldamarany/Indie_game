@@ -2,11 +2,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Generator : MonoBehaviour //make it generic and inherit from it in roadgenerator and sandgenerator
-    // implement the start and update in every subclass but keep spawn and return here
+public class Generator : MonoBehaviour 
 {
     [SerializeField] protected VectorSO PlayerPosition;
-   protected PoolGO roadsPool;
+   protected Pool roadsPool;
     protected float spawnz;
    [SerializeField] protected float roadLegnth = 10;
    [SerializeField] protected int amount = 5;
@@ -19,8 +18,9 @@ public class Generator : MonoBehaviour //make it generic and inherit from it in 
     void Start()
     {
         currentPosition = transform.position;
-        // audioPlayer = GetComponent<AudioPlayer>();
-        roadsPool = gameObject.GetComponent<PoolGO>();
+        spawnz = currentPosition.z;
+     
+        roadsPool = gameObject.GetComponent<Pool>();
 
         activeRoads = new Queue<PoolItem>();
         for (int i = 0; i < amount; i++)
@@ -47,13 +47,8 @@ public class Generator : MonoBehaviour //make it generic and inherit from it in 
             return;
         currentPosition.z = spawnz;
         newRoad.transform.position = currentPosition;
-
-
-
-        // //todo when 
         activeRoads.Enqueue(newRoad);
         spawnz += roadLegnth;
-
     }
     protected void ReturnRoad()
     {
