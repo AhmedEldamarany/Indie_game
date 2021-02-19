@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
    [SerializeField] VectorSO PlayerPosition;
     [SerializeField] MyEventSO deathEvent;
     float h, v;
-    float speed = 8f;
+   [SerializeField] private IntSo speed;
 
     void Start()
     {
@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        h = Input.GetAxis("Horizontal") * speed ;
-        v = Input.GetAxis("Vertical") * speed ;
+        h = Input.GetAxis("Horizontal") * speed.value ;
+        v = Input.GetAxis("Vertical") * speed.value ;
         rb.AddForce(h, 0, v);
         PlayerPosition.value = transform.position;
        

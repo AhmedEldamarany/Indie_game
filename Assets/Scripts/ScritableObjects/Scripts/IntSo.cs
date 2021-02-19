@@ -6,8 +6,5 @@ using UnityEngine;
 public class IntSo : ScriptableObject
 {
     public int value;
-    private void OnDisable()
-    {
-        value = 0;
-    }
+   
 }

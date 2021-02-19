@@ -8,7 +8,7 @@ public class SandGenerator : Generator
 
     void Update()
     {
-        if (PlayerPosition.value.z - roadLegnth > (spawnz - (amount * roadLegnth)))
+        if (PlayerPosition.value.z - roadLegnth > (spawnz - (startingAmount * roadLegnth)))
         {
             SpawnRoad();
             ReturnRoad();

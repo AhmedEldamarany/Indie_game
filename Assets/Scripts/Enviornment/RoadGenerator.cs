@@ -9,7 +9,7 @@ public class RoadGenerator : Generator
     
     void Update()
     {
-        if (PlayerPosition.value.z - roadLegnth > (spawnz - (amount * roadLegnth)))
+        if (PlayerPosition.value.z - roadLegnth*1.5f > (spawnz - (startingAmount * roadLegnth)))
         {
             SpawnRoad();
             ReturnRoad();

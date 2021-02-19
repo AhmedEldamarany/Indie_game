@@ -8,26 +8,27 @@ public class Generator : MonoBehaviour
    protected Pool roadsPool;
     protected float spawnz;
    [SerializeField] protected float roadLegnth = 10;
-   [SerializeField] protected int amount = 5;
+    
+   [SerializeField] protected int startingAmount = 5;
    protected Queue<PoolItem> activeRoads;
     protected Vector3 currentPosition;
 
     //AudioPlayer audioPlayer;
 
-
-    void Start()
+    private void Start()
     {
         currentPosition = transform.position;
         spawnz = currentPosition.z;
-     
+
         roadsPool = gameObject.GetComponent<Pool>();
 
         activeRoads = new Queue<PoolItem>();
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < startingAmount; i++)
         {
             SpawnRoad();
         }
     }
+   
 
     //// Update is called once per frame
     //void Update()

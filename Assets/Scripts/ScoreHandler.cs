@@ -7,11 +7,11 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] private IntSo score;
     [SerializeField]UiManager uiManager;
     [SerializeField]private DifficultySO diffuclty;
-    void Start()
+    void Awake()
     {
         diffuclty.value = DifficultySO.Diffuclty.easy;
-        //uiManager = GameObject.FindGameObjectWithTag("ui").GetComponent<UiManager>(); //
-
+        score.value = 0;
+        uiManager.setScore();
     }
 
     void Update()

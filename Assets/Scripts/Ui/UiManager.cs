@@ -11,14 +11,14 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         
-        scoreText.text = score.value.   ToString("0");
+        scoreText.text = "0";
     }
 
 
     public  void setScore()
     {
-       // after scorehandlre did ++
-        scoreText.text =score.value.ToString("0");
+        // after scorehandlre did ++
+        scoreText.text = $"{score.value}";
     }
     public  void TakeALife()
     {

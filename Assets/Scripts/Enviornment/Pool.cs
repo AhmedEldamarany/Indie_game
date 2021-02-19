@@ -27,7 +27,7 @@ public class Pool : MonoBehaviour //Mine
         {
             index = Random.Range(0, elements.Count);
             currentRoad = elements[index];
-            elements[index].Activate();
+            currentRoad.Activate();
             elements.RemoveAt(index);
             return currentRoad;
         }
