@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pool : MonoBehaviour //Mine
+public class Pool : MonoBehaviour 
 {
     public List<PoolItem> elements;
     PoolItem currentRoad;
@@ -21,6 +21,21 @@ public class Pool : MonoBehaviour //Mine
             
         }
     }
+    public PoolItem getItemAt(int index)
+    {
+        if (elements.Count > 0)
+        {
+            currentRoad = elements[index];
+            currentRoad.Activate();
+            elements.RemoveAt(index);
+            return currentRoad;
+        }
+        else
+        {
+            Debug.LogWarning("Pool is empty");
+            return null;
+        }
+    }
     public PoolItem getRoad()
     {
         if (elements.Count > 0)
@@ -32,7 +47,10 @@ public class Pool : MonoBehaviour //Mine
             return currentRoad;
         }
         else
+        {
+            Debug.LogWarning("Pool is empty");
             return null;
+        }
     }
     public void AddBack(PoolItem road)
     {

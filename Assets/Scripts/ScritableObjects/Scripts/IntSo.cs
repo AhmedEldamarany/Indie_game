@@ -6,5 +6,16 @@ using UnityEngine;
 public class IntSo : ScriptableObject
 {
     public int value;
-   
+    [SerializeField] private int startingValue=1;
+    private void OnDisable()
+    {
+        value = startingValue;
+    }
+    private void OnEnable()
+    {
+        value = startingValue;
+
+    }
+
+
 }

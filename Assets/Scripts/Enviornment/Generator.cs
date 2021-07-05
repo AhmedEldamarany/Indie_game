@@ -2,15 +2,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Generator : MonoBehaviour 
+public class Generator : MonoBehaviour
 {
     [SerializeField] protected VectorSO PlayerPosition;
-   protected Pool roadsPool;
+    protected Pool myPool;
     protected float spawnz;
-   [SerializeField] protected float roadLegnth = 10;
-    
-   [SerializeField] protected int startingAmount = 5;
-   protected Queue<PoolItem> activeRoads;
+    [SerializeField] protected float roadLegnth = 10;
+    [Tooltip("Must be less than double the pool elements amount")]
+    [SerializeField] protected int startingAmount = 5;
+    protected Queue<PoolItem> activeRoads;
     protected Vector3 currentPosition;
 
     //AudioPlayer audioPlayer;
@@ -19,33 +19,34 @@ public class Generator : MonoBehaviour
     {
         currentPosition = transform.position;
         spawnz = currentPosition.z;
+        myPool = gameObject.GetComponent<Pool>();
 
-        roadsPool = gameObject.GetComponent<Pool>();
+        { //making sure the first item is always emptyRoad prefab
+            activeRoads = new Queue<PoolItem>();
+            PoolItem newRoad = myPool.getItemAt(0);
+            currentPosition.z = spawnz;
+            newRoad.transform.position = currentPosition;
+            activeRoads.Enqueue(newRoad);
+            spawnz += roadLegnth;
+        }
 
-        activeRoads = new Queue<PoolItem>();
-        for (int i = 0; i < startingAmount; i++)
+        for (int i = 0; i < startingAmount - 1; i++)
         {
             SpawnRoad();
         }
     }
-   
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (PlayerPosition.value.z - roadLegnth > (spawnz - (amount * roadLegnth)))
-    //    {
-    //        SpawnRoad();
-    //        ReturnRoad();
-    //      //  audioPlayer.PlayAudio();
-    //        //score event SO
-    //    }
-    //}
+
+
     protected void SpawnRoad()
     {
-        PoolItem newRoad = roadsPool.getRoad();
+        PoolItem newRoad = myPool.getRoad();
         if (newRoad == null)
+        {
+            Debug.LogError("Pool sent nothing");
             return;
+        }
+
         currentPosition.z = spawnz;
         newRoad.transform.position = currentPosition;
         activeRoads.Enqueue(newRoad);
@@ -53,7 +54,7 @@ public class Generator : MonoBehaviour
     }
     protected void ReturnRoad()
     {
-        roadsPool.AddBack(activeRoads.Dequeue());
+        myPool.AddBack(activeRoads.Dequeue());
 
 
 
