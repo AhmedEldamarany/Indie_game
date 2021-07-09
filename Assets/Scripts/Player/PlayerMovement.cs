@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-    private UiManager uiManager;
+    [SerializeField] UiManager uiManager;
     [SerializeField] VectorSO PlayerPosition;
     [SerializeField] MyEventSO deathEvent;
     [SerializeField] VectorSO Movement;
@@ -18,14 +18,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        uiManager = GameObject.FindGameObjectWithTag("ui").GetComponent<UiManager>();
+        
+    }
+    public void InitPosition()
+    {
+        transform.position = new Vector3(0, 13, 0);
+        rb.velocity = Vector3.zero;
+        PlayerPosition.value = transform.position;
     }
 
-
-    private void LateUpdate()
+    private void FixedUpdate() //torest the cpu a bit from adding force every frame
     {
-        Debug.Log(rb.velocity);
-        rb.AddForce(Movement.value*speed.value,ForceMode.Acceleration);   //need to be clamped
+        rb.AddForce(Movement.value * speed.value);   
         PlayerPosition.value = transform.position;
     }
     public void Deadth()

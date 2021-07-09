@@ -7,7 +7,6 @@ public class Pool : MonoBehaviour
     public List<PoolItem> elements;
     PoolItem currentRoad;
     private int index;
-   
     void Start()
     {
         int count = elements.Count;

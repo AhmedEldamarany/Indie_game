@@ -5,12 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-   public void LoadActOne()
+    private void Awake()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 0;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
-    public void LoadActTwo()
+    public void TimeSpeed(float scale)
     {
-        SceneManager.LoadScene(2);
+        Time.timeScale = scale;
+    }
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

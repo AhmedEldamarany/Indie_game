@@ -4,24 +4,39 @@ using UnityEngine;
 
 public class ScoreHandler : MonoBehaviour
 {
-    [SerializeField] private IntSo score;
+    [SerializeField] private ScoreSO score;
     [SerializeField]UiManager uiManager;
     [SerializeField]private DifficultySO diffuclty;
     [SerializeField] int mediumStartingScore=5;
     [SerializeField] int hardStartingScore=20;
     [SerializeField] int insaneStartingScore=40;
-    void Awake()
+    [SerializeField] bool isEndless;
+    [SerializeField] int winningScore;
+    [SerializeField] MyEventSO WinningEvent;
+
+    void Start()
+    {
+        initDifficulty();
+        
+    }
+    public void initDifficulty()
     {
         diffuclty.value = DifficultySO.Diffuclty.easy;
-        score.value = 0;
-        uiManager.setScore();
+
     }
 
-    
     public void HandleDifficulty()
     {
         score.value++;
         uiManager.setScore();
+
+        if(!isEndless)
+        {
+            if (score.value >= winningScore)
+                WinningEvent.Raise(); 
+
+        }
+        
         //why am i not using <= and >= ???????!
         if (score.value > mediumStartingScore && score.value < hardStartingScore)
             diffuclty.value = DifficultySO.Diffuclty.meduim;

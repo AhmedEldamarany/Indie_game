@@ -7,14 +7,19 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] private  Text scoreText;
     [SerializeField] private  Text livesScore;
-    [SerializeField] private IntSo score;
-    [SerializeField] private IntSo Lives;
+    [SerializeField] private ScoreSO score;
+    [SerializeField] private IntSo lives;
+    [SerializeField] MyEventSO GameOverEvent;
     private void Start()
     {
+        InitCanvasValues();
         
-        scoreText.text = "0";
     }
-
+    public void InitCanvasValues()
+    {
+        scoreText.text = $"{score.value}";
+        livesScore.text = lives.value.ToString("0");
+    }
 
     public  void setScore()
     {
@@ -23,11 +28,13 @@ public class UiManager : MonoBehaviour
     }
     public  void TakeALife()
     {
-        livesScore.text = (int.Parse(livesScore.text) - 1).ToString("0");
+
+        if (--lives.value > 0) //shouldn't really decrease it here.
+            livesScore.text = lives.value.ToString("0");
+        else
+            GameOverEvent.Raise();
+
     }
 
-    public void Exit()
-    {
-        Application.Quit();
-    }
+   
 }

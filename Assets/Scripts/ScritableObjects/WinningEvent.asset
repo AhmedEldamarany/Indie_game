@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a17b9d32ee30a4f875c1ac52ceee7f, type: 3}
-  m_Name: speedData
+  m_Script: {fileID: 11500000, guid: 5b5ba4786a46b7c4093af3d49bb7da6f, type: 3}
+  m_Name: WinningEvent
   m_EditorClassIdentifier: 
-  value: 9

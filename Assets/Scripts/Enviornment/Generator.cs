@@ -15,11 +15,13 @@ public class Generator : MonoBehaviour
 
     //AudioPlayer audioPlayer;
 
-    private void Start()
+
+
+    protected void Init()
     {
         currentPosition = transform.position;
         spawnz = currentPosition.z;
-        myPool = gameObject.GetComponent<Pool>();
+        //myPool = gameObject.GetComponent<Pool>();
 
         { //making sure the first item is always emptyRoad prefab
             activeRoads = new Queue<PoolItem>();
@@ -35,9 +37,7 @@ public class Generator : MonoBehaviour
             SpawnRoad();
         }
     }
-
-
-
+    
     protected void SpawnRoad()
     {
         PoolItem newRoad = myPool.getRoad();
@@ -55,8 +55,10 @@ public class Generator : MonoBehaviour
     protected void ReturnRoad()
     {
         myPool.AddBack(activeRoads.Dequeue());
-
-
-
+    }
+    public void CleanSlate()
+    {
+        foreach (var road in activeRoads)
+            myPool.AddBack(road);
     }
 }
