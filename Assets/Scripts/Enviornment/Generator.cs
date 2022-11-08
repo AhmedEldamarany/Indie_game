@@ -17,7 +17,7 @@ public class Generator : MonoBehaviour
 
 
 
-    protected void Init()
+    protected void Init() //TODO Make virtual and add override in the init children
     {
         currentPosition = transform.position;
         spawnz = currentPosition.z;

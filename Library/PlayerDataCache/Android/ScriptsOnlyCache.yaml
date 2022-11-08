@@ -2,10 +2,14 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AudioPlayer
+    - DeadlyPool
     - DifficultySO
+    - GyroscopeInput
     - IntSo
     - MyEventListner
     - MyEventSO
+    - NormalPool
+    - PcInput
     - PlayerMovement
     - Pool
     - RoadGenerator
@@ -14,6 +18,7 @@ ScriptsOnlyBuild:
     - SandPoolObject
     - SceneLoader
     - ScoreHandler
+    - ScoreSO
     - UiManager
     - VectorSO
     - dg_simpleCamFollow
@@ -92,61 +97,71 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11358}
     - Class: 114
-      Script: {instanceID: 11570}
+      Script: {instanceID: 11520}
     - Class: 114
-      Script: {instanceID: 11648}
+      Script: {instanceID: 11534}
     - Class: 114
-      Script: {instanceID: 11752}
+      Script: {instanceID: 11574}
     - Class: 114
-      Script: {instanceID: 12026}
+      Script: {instanceID: 11652}
+    - Class: 114
+      Script: {instanceID: 11756}
     - Class: 114
       Script: {instanceID: 12030}
     - Class: 114
-      Script: {instanceID: 12092}
+      Script: {instanceID: 12034}
     - Class: 114
-      Script: {instanceID: 12204}
+      Script: {instanceID: 12096}
     - Class: 114
-      Script: {instanceID: 12226}
+      Script: {instanceID: 12208}
     - Class: 114
-      Script: {instanceID: 12284}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12348}
+      Script: {instanceID: 12276}
     - Class: 114
-      Script: {instanceID: 12404}
+      Script: {instanceID: 12290}
     - Class: 114
-      Script: {instanceID: 12428}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12556}
+      Script: {instanceID: 12432}
     - Class: 114
-      Script: {instanceID: 12584}
+      Script: {instanceID: 12560}
     - Class: 114
-      Script: {instanceID: 12622}
+      Script: {instanceID: 12588}
     - Class: 114
-      Script: {instanceID: 12682}
+      Script: {instanceID: 12626}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12686}
     - Class: 114
-      Script: {instanceID: 12722}
+      Script: {instanceID: 12700}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 12916}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 12966}
+      Script: {instanceID: 12920}
     - Class: 114
-      Script: {instanceID: 12968}
+      Script: {instanceID: 12970}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 12972}
     - Class: 114
-      Script: {instanceID: 13132}
+      Script: {instanceID: 13116}
     - Class: 114
-      Script: {instanceID: 13286}
+      Script: {instanceID: 13124}
     - Class: 114
-      Script: {instanceID: 13304}
+      Script: {instanceID: 13138}
     - Class: 114
-      Script: {instanceID: 13356}
+      Script: {instanceID: 13256}
+    - Class: 114
+      Script: {instanceID: 13292}
+    - Class: 114
+      Script: {instanceID: 13296}
+    - Class: 114
+      Script: {instanceID: 13314}
+    - Class: 114
+      Script: {instanceID: 13366}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -196,6 +211,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 71f09a6d8c2a34f524251d0dd5fa42ab
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreSO
   - hash:
       serializedVersion: 2
       Hash: 726fcf7961cbb4108aa5be5e55b8c8bf
@@ -262,6 +283,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 3e4e99ba6a29dc11a6e824f10c5e85c9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GyroscopeInput
   - hash:
       serializedVersion: 2
       Hash: aeb62f729c52c814dec86c47dcac1471
@@ -450,7 +477,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: cfcd2fe9515d1b9db3a5017a2ca26d62
+      Hash: 84abd1466d3841370edc272aa728ec5e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UiManager
@@ -486,6 +513,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 13418bac4325ef7bd8cbc07dfba17f9f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NormalPool
+  - hash:
+      serializedVersion: 2
       Hash: 2224ed71b7d46696e57b460d32e5daf5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -502,12 +535,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
-  - hash:
-      serializedVersion: 2
-      Hash: 4bbc85337cdf2754cc66b58abb3e9010
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerMovement
   - hash:
       serializedVersion: 2
       Hash: a53651ee3996fbba20dfe0fce02f0b23
@@ -648,7 +675,7 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
-      Hash: 40f340ff1e4f8e71af248c9389e44713
+      Hash: f9f9069a5a54c500bc8dcc04b5121205
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreHandler
@@ -672,7 +699,13 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 71f09a6d8c2a34f524251d0dd5fa42ab
+      Hash: bc99d6ccac5cff1c86a37dff2417284d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 6f4483d4f9cd6d8ba8f6c860d74fa945
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: IntSo
@@ -708,6 +741,12 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
+      Hash: 13418bac4325ef7bd8cbc07dfba17f9f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeadlyPool
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -726,6 +765,12 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
+      Hash: 3e4e99ba6a29dc11a6e824f10c5e85c9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PcInput
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -738,7 +783,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 19da1f093c07ed4baa53c492da432e07
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneLoader
@@ -811,4 +856,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Crazy Road.unity
-  playerPath: C:/Users/Ahmed/New Unity Project/Builds/Input_Test.apk
+  playerPath: C:/Users/Ahmed/New Unity Project/Builds/Levels_Test.apk
